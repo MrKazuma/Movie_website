@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Add your custom CSS styles here -->
+    <style>
+        /* Add your custom styles here */
+        body {
+
+            padding-top: 56px; /* Adjust based on your navigation bar height */
+            margin-bottom: 60px; /* Adjust based on your footer height */
+
+        }
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .marquee {
+            white-space: nowrap;
+            animation: marquee 5s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        /* Add more styles as needed */
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a navbar-brand href="3"></a>
+        <img src="logo.png" alt="Eventify Logo" height="50" class="marquee">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="productpage.html">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="movies.html">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="checkout.html">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cart Page Content -->
+    <div class="container mt-5">
+        <h2>Your Cart</h2>
+        <div id="cartItems">
+            <!-- Sample cart items will be dynamically added here -->
+        </div>
+        <hr>
+        <div class="text-right">
+            <p>Total Items: <span id="totalItems">0</span></p>
+            <p>Total Price: $<span id="totalPrice">0.00</span></p>
+            <button class="btn btn-success" onclick="pay()">Pay Now</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white text-center">
+        <div class="container">
+            <!-- Contact Information -->
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h4>Contact Information</h4>
+                    <p><strong>Email:</strong> eventify@email.com</p>
+                    <p><strong>Phone:</strong> +1 (888) 777-7878</p>
+                    <p><strong>Address:</strong> Blue Street, New Delhi, India</p>
+    
+                    <!-- Social Icons -->
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/" target="_blank"><img src="insta_icon.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com/" target="_blank"><img src="fb_icon.png" alt="Facebook"></a>
+                        <a href="https://www.linkedin.com/" target="_blank"><img src="li_icon.png" alt="LinkedIn"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap and JavaScript Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+
+    <!-- Your custom JavaScript -->
+    <script>
+        // Sample cart data
+        const cartItems = [
+            { productName: 'Product 1', quantity: 2, price: 19.99 },
+            { productName: 'Product 2', quantity: 1, price: 29.99 },
+            // Add more sample items as needed
+        ];
+
+        function displayCartItems() {
+            const cartContainer = document.getElementById('cartItems');
+            const totalItemsElement = document.getElementById('totalItems');
+            const totalPriceElement = document.getElementById('totalPrice');
+
+            // Clear previous cart items
+            cartContainer.innerHTML = '';
+
+            // Populate the cart with sample items
+            cartItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-body">
+                        <h5 class="card-title">${item.productName}</h5>
+                        <p class="card-text">Quantity: ${item.quantity}</p>
+                        <p class="card-text">Price per piece: $${item.price}</p>
+                    </div>
+                `;
+                cartContainer.appendChild(card);
+            });
+
+            // Update total items and total price
+            const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+            totalItemsElement.innerText = totalItems;
+            const totalPrice = cartItems.reduce((total, item) => total + (item.quantity * item.price), 0);
+            totalPriceElement.innerText = totalPrice.toFixed(2);
+        }
+
+        function pay() {
+            // Placeholder for payment logic
+            alert('Payment button clicked. Implement your payment logic!');
+        }
+
+        // Call the function when the page is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            displayCartItems();
+        });
+    </script>
+
+</body>
+
+</html>

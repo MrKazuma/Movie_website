@@ -1,0 +1,35 @@
+/* styles.css */
+
+/* Home Page Styles */
+body.home {
+    padding-top: 56px;
+    margin-bottom: 60px;
+}
+
+/* Products Page Styles */
+body.products {
+    padding-top: 56px;
+    margin-bottom: 60px;
+}
+
+.card.products {
+    margin-bottom: 20px;
+}
+
+/* Cart Page Styles */
+body.cart {
+    padding-top: 56px;
+    margin-bottom: 60px;
+}
+
+.card.cart {
+    margin-bottom: 20px;
+}
+
+/* About Us Page Styles */
+body.about {
+    padding-top: 56px;
+    margin-bottom: 60px;
+}
+
+/* Add more styles as needed */
